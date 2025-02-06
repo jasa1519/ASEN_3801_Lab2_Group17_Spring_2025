@@ -1,4 +1,3 @@
-
 % Lab 2 Function (a)
 % input: data file from ASPEN lab
 % outputs: t_vec, av_pos_inert, av_att, tar_pos_inert, tar_att
@@ -25,5 +24,6 @@ att_tar_aspen = transpose([data(: , 2) , data(: , 3) , data(: , 4)]);
 
 %% Converting Data
 [av_pos_inert, av_att, tar_pos_inert, tar_att] = ConvertASPENData(pos_av_aspen, att_av_aspen,  pos_tar_aspen, att_tar_aspen);
+
 
 end
