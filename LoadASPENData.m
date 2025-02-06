@@ -7,6 +7,14 @@ data = readmatrix(filename);
 
 %% Unpacking Aspen Data
 
+for col = 2:13
+for row = 1:length(data)
+if isnan(data(row,col))
+data(row,col) = data(row-1,col);
+end
+end
+end
+
 % time vector: 1xn
 t_vec = (data(:,1))./100;
 
