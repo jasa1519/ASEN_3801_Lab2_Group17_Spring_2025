@@ -183,8 +183,8 @@ saveas(TASK7,'TASK7','png');
 vehicle_to_target_321 = zeros(3,length(t_vec));
 
 for i = 1:length(t_vec)
-    vehicle_DCM = RotationMatrix321(vehicle.attitude_E(:,i)); % Extracts earth to vehicle DCM
-    target_DCM = RotationMatrix321(target.attitude_E(:,i)); % Extracts earth to target DCM
+    vehicle_DCM = RotationMatrix321((180/pi).*vehicle.attitude_E(:,i)); % Extracts earth to vehicle DCM
+    target_DCM = RotationMatrix321((180/pi).*target.attitude_E(:,i)); % Extracts earth to target DCM
      % DCM Rotates from vehicle to earth, then from earth to Target.
      % Combined as one DCM:
     vehicle_to_target_DCM = target_DCM*(vehicle_DCM^-1);
