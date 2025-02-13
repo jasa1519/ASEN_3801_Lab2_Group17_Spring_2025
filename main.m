@@ -120,6 +120,7 @@ subplot(3,1,i)
 hold on
 plot(t_vec,relative_position_E(i,:))
 title(subplot_label_arr(i))
+ylim([-5000,5000]);
 hold off
 end
 
@@ -147,11 +148,30 @@ subplot(3,1,i)
 hold on
 plot(t_vec,relative_position_B(i,:))
 title(subplot_label_arr(i))
+ylim([-5000,5000]);
 hold off
 
 end
 
+% Verifying magnitudes are the same for both.
+
+rel_pos_mag_E = zeros(3,length(t_vec));
+rel_pos_mag_B = zeros(3,length(t_vec));
+for i = 1:length(t_vec)
+    rel_pos_mag_E(:,i) = norm(relative_position_E(:,i));
+    rel_pos_mag_B(:,i) = norm(relative_position_B(:,i));
+end
+
+
+if(max(abs(rel_pos_mag_B-rel_pos_mag_E)) > 10^-6)
+    to_print = "ALERT: Relative position vector magnitudes do not match!"
+else
+    to_print = "Verified: Relative position vector magnitudes match."
+end
 
 
 %% Task 8
+
+
+
 
